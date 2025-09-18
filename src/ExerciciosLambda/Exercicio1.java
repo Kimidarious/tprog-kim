@@ -21,6 +21,7 @@ public class Exercicio1 {
         };
 
         System.out.println("Testando Conversores:\n");
+        System.out.println();
 
         for (String texto : textos) {
             System.out.println(" * Texto original: \"" + texto + "\"");
