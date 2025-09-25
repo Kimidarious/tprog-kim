@@ -1,5 +1,7 @@
 package ada.tech.exemplo;
 
+import java.util.Objects;
+
 public class Animal {
 
     private String especie;
@@ -22,5 +24,17 @@ public class Animal {
 
     public void setEspecie(String especie) {
         this.especie = especie;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return podeSaltar == animal.podeSaltar && podeNadar == animal.podeNadar && Objects.equals(especie, animal.especie);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(especie, podeSaltar, podeNadar);
     }
 }
