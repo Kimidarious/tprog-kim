@@ -1,34 +1,43 @@
-# Exercícios de Stream em Java - Entregar 29/09/2025
 
-Esta lista contém 5 exercícios progressivos sobre o uso de Streams em Java. O objetivo é praticar operações intermediárias e terminais, até chegar em um desafio mais complexo utilizando pipelines compostos.
+# Exercício: Listar diretórios e arquivos em Java (usando `File`, `Path`, recursividade e Streams)
+
+## Objetivo
+Crie um programa em Java que percorra recursivamente uma árvore de diretórios a partir de um caminho inicial e liste **todos os diretórios e subdiretórios**, juntamente com os **arquivos correspondentes**.
+
+>> Você deve implementar a navegação utilizando **`File`**, **`Path`** e **recursividade**. O uso de **Streams** é permitido para auxiliar no processamento de listas de arquivos e diretórios.
+---
+
+## Requisitos
+1. Crie uma classe `DirectoryLister` que contenha um método público:
+   ```java
+   public static void listTree(File start, String indent, List<String> out)
+   ```
+    - `start` é o diretório inicial.
+    - `indent` é uma string de indentação (ex.: `"  "`), para controlar a profundidade da árvore.
+    - `out` é uma lista (`List<String>`) onde você armazenará as linhas com o resultado (diretórios terminam com `/`, arquivos apenas com o nome).
+
+2. A listagem deve ser **recursiva**:
+    - Se o elemento atual for diretório → adicionar o nome com `/` e chamar o método recursivamente para seus filhos.
+    - Se for arquivo → apenas adicionar o nome com a indentação correta.
+
+3. O uso de **Streams** é permitido, por exemplo:
+    - Para iterar sobre `File[]` retornado por `listFiles()`.
+    - Para filtrar arquivos ou ordenar resultados antes de imprimir.
 
 ---
 
-## Exercício 1 - Filtragem Simples
-Dada uma lista de números inteiros, use Stream para filtrar apenas os números pares e imprimir cada um deles.
+## Exemplo de saída esperada
+```
+/tmp/mytempdir/
+  docs/
+    readme.md
+  src/
+    Main.java
+  notes.txt
+```
 
 ---
 
-## Exercício 2 - Mapeamento
-Dada uma lista de nomes, converta todos os nomes para letras maiúsculas utilizando Stream e exiba o resultado.
-
----
-
-## Exercício 3 - Ordenação e Limite
-Dada uma lista de números decimais, ordene-os em ordem crescente, limite o resultado aos 3 primeiros e exiba-os.
-
----
-
-## Exercício 4 - Redução
-Dada uma lista de números inteiros, utilize Stream para calcular a soma de todos os elementos.
-
----
-
-## Exercício 5 - Desafio Avançado (Pipeline Composto)
-Dada uma lista de produtos (classe `Produto` com atributos `nome`, `preco` e `categoria`):
-
-1. Filtrar apenas os produtos da categoria "Eletrônicos" com preço acima de 500.
-2. Ordenar os produtos pelo preço em ordem decrescente.
-3. Agrupar os produtos por categoria em um `Map<String, List<Produto>>`.
-4. Dentro da categoria "Eletrônicos", extrair apenas os nomes dos produtos mais caros (top 2).
-5. Exibir o resultado final.  
+## Critérios de avaliação
+- Uso correto de **recursividade**.
+- Uso opcional (mas bem aplicado) de **Streams**.
