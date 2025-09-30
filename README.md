@@ -41,3 +41,11 @@ Crie um programa em Java que percorra recursivamente uma árvore de diretórios 
 ## Critérios de avaliação
 - Uso correto de **recursividade**.
 - Uso opcional (mas bem aplicado) de **Streams**.
+
+----
+
+# Exercicio copia de imagem
+
+## Objetivo
+Adicione uma imagem na pasta /src/resources (pode ser **jpg**, **jpeg** ou **png**), e com as abstracoes de **InputStream** e **OutputStream**, realize uma copia em um outro arquivo de imagem do mesmo tipo.
+O codigo deve ser executado na classe **ImageCopyMain.java**
